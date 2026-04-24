@@ -95,10 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const projectCount = document.getElementById('projectCount');
   const noResultsMsg = document.getElementById('noResultsMessage');
   const allCards = Array.from(document.querySelectorAll('.project-card'));
+  const favoriteBtns = document.querySelectorAll('.favorite-btn');
 
   let activeCategory = localStorage.getItem('projectCategory') || 'all';
   const savedSort = localStorage.getItem('projectSort') || 'default';
   const savedSearch = localStorage.getItem('projectSearch') || '';
+  let favorites = JSON.parse(localStorage.getItem('favoriteProjects')) || [];
 
   searchInput.value = savedSearch;
   sortSelect.value = savedSort;
@@ -107,13 +109,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.classList.toggle('active', btn.dataset.category === activeCategory);
   });
 
+  function updateFavoriteButtons() {
+    favoriteBtns.forEach(function (btn) {
+      const card = btn.closest('.project-card');
+      const projectId = card.dataset.projectId;
+
+      if (favorites.includes(projectId)) {
+        btn.textContent = '★';
+        btn.classList.add('active');
+      } else {
+        btn.textContent = '☆';
+        btn.classList.remove('active');
+      }
+    });
+  }
+
   function renderProjects() {
     const query = searchInput.value.toLowerCase().trim();
     const sortBy = sortSelect.value;
     let cards = [...allCards];
 
     cards = cards.filter(function (card) {
-      return activeCategory === 'all' || card.dataset.category === activeCategory;
+      const category = card.dataset.category;
+      const projectId = card.dataset.projectId;
+
+      if (activeCategory === 'favorites') {
+        return favorites.includes(projectId);
+      }
+
+      return activeCategory === 'all' || category === activeCategory;
     });
 
     if (query) {
@@ -145,6 +169,25 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('projectSearch', searchInput.value);
   }
 
+  favoriteBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const card = btn.closest('.project-card');
+      const projectId = card.dataset.projectId;
+
+      if (favorites.includes(projectId)) {
+        favorites = favorites.filter(function (id) {
+          return id !== projectId;
+        });
+      } else {
+        favorites.push(projectId);
+      }
+
+      localStorage.setItem('favoriteProjects', JSON.stringify(favorites));
+      updateFavoriteButtons();
+      renderProjects();
+    });
+  });
+
   searchInput.addEventListener('input', renderProjects);
   sortSelect.addEventListener('change', renderProjects);
 
@@ -153,13 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
       filterBtns.forEach(function (b) {
         b.classList.remove('active');
       });
+
       btn.classList.add('active');
       activeCategory = btn.dataset.category;
       renderProjects();
     });
   });
-
-  renderProjects();
 
   projectsGrid.addEventListener('click', function (e) {
     const btn = e.target.closest('.details-btn');
@@ -171,6 +213,9 @@ document.addEventListener('DOMContentLoaded', function () {
     details.classList.toggle('hidden');
     btn.textContent = details.classList.contains('hidden') ? 'View Details' : 'Hide Details';
   });
+
+  updateFavoriteButtons();
+  renderProjects();
 
   const loadReposBtn = document.getElementById('loadReposBtn');
   const repoList = document.getElementById('repoList');
@@ -193,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  loadReposBtn.addEventListener('click', function () {
+  function loadGitHubRepos() {
     if (loadReposBtn.disabled) return;
 
     setRepoButtonState('loading');
@@ -218,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
           card.className = 'repo-card';
 
           const langHtml = repo.language
-            ? '<span class="repo-lang">' + repo.language + '</span>'
+            ? '<span class="repo-lang">' + escapeHtml(repo.language) + '</span>'
             : '';
 
           const starsHtml = repo.stargazers_count > 0
@@ -230,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
             '<p>' + escapeHtml(repo.description || 'No description available.') + '</p>' +
             starsHtml +
             langHtml +
-            '<a href="' + repo.html_url + '" target="_blank" rel="noopener">View Repository →</a>';
+            '<a href="' + repo.html_url + '" target="_blank" rel="noopener noreferrer">View Repository →</a>';
 
           repoList.appendChild(card);
         });
@@ -239,7 +284,13 @@ document.addEventListener('DOMContentLoaded', function () {
         setRepoButtonState('default');
         apiMessage.textContent = '⚠ Unable to load repositories right now. Please try again later.';
       });
-  });
+  }
+
+  loadReposBtn.addEventListener('click', loadGitHubRepos);
+
+  setTimeout(function () {
+    loadGitHubRepos();
+  }, 800);
 
   function escapeHtml(str) {
     return String(str)

@@ -1060,3 +1060,84 @@ footer {
     padding: 4rem 1rem;
   }
 }
+
+
+
+
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--accent);
+}
+
+.inline-details-btn {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+
+.inline-details-btn:hover {
+  transform: translateY(-2px);
+}
+
+.contact-link-item .cl-icon {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+
+.favorite-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(11,18,32,0.78);
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--accent);
+}
+
+.inline-details-btn {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+
+.inline-details-btn:hover {
+  transform: translateY(-2px);
+}
+
+#github {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.contact-link-item .cl-icon {
+  font-family: var(--font-display);
+  font-weight: 800;
+}

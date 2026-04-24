@@ -10,19 +10,22 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">MA<span class="dot">.</span></a>
+
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#github" class="nav-link">GitHub</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/meshaal-alharbi-233b08207/" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a></li>
       </ul>
+
       <button id="themeToggle" aria-label="Toggle theme">
         <span class="theme-icon">☀</span>
       </button>
+
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,6 +38,7 @@
       <li><a href="#projects" class="mobile-link">Projects</a></li>
       <li><a href="#github" class="mobile-link">GitHub</a></li>
       <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/meshaal-alharbi-233b08207/" target="_blank" rel="noopener noreferrer" class="mobile-link">LinkedIn</a></li>
     </ul>
   </div>
 
@@ -44,16 +48,20 @@
       <div class="hero-blob blob2"></div>
       <div class="hero-blob blob3"></div>
     </div>
+
     <div class="hero-content">
       <p class="hero-eyebrow" id="greeting"></p>
       <h1 class="hero-name">Meshaal<br><span>Alharbi</span></h1>
       <p class="hero-role">Software Engineering Student <span class="sep">·</span> Web Developer</p>
+
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
+
       <div id="timeOnSite" class="time-badge">⏱ 0s on site</div>
     </div>
+
     <div class="hero-scroll">
       <span>Scroll</span>
       <div class="scroll-line"></div>
@@ -62,33 +70,38 @@
 
   <section id="about">
     <div class="section-label">01 — About</div>
+
     <div class="about-grid">
       <div class="about-text">
         <h2 class="section-title">Who I Am</h2>
         <p id="welcomeMessage" class="welcome-msg"></p>
+
         <p class="about-bio">
-          I'm a junior Software Engineering student at KFUPM, passionate about building clean, 
-          responsive web experiences. I enjoy turning complex problems into simple, elegant solutions 
-          and continuously push my skills through hands-on projects.
+          I'm a junior Software Engineering student at KFUPM, passionate about building clean,
+          responsive web experiences. I enjoy turning complex problems into simple solutions
+          and continuously improving my skills through hands-on projects.
         </p>
+
         <div class="skills-row">
           <span class="skill-tag">HTML/CSS</span>
           <span class="skill-tag">JavaScript</span>
           <span class="skill-tag">Java</span>
           <span class="skill-tag">JavaFX</span>
           <span class="skill-tag">Git</span>
+          <span class="skill-tag">API</span>
         </div>
       </div>
+
       <div class="about-card">
-        <div class="card-inner">
-          <h3 class="card-title">Say Hello 👋</h3>
-          <p class="card-sub">Leave your name and I'll remember you next time!</p>
-          <div class="name-input-group">
-            <input type="text" id="visitorName" placeholder="Your name…" autocomplete="off">
-            <button id="saveNameBtn">Save</button>
-          </div>
-          <button id="clearNameBtn" class="clear-btn">Clear saved name</button>
+        <h3 class="card-title">Say Hello 👋</h3>
+        <p class="card-sub">Leave your name and I will remember you next time.</p>
+
+        <div class="name-input-group">
+          <input type="text" id="visitorName" placeholder="Your name…" autocomplete="off">
+          <button id="saveNameBtn">Save</button>
         </div>
+
+        <button id="clearNameBtn" class="clear-btn">Clear saved name</button>
       </div>
     </div>
   </section>
@@ -99,11 +112,16 @@
 
     <div class="projects-toolbar">
       <input type="text" id="projectSearch" placeholder="Search projects…" autocomplete="off">
+
       <div class="filter-buttons">
         <button class="filter-btn active" data-category="all">All</button>
         <button class="filter-btn" data-category="web">Web</button>
         <button class="filter-btn" data-category="java">Java</button>
+        <button class="filter-btn" data-category="basic">Basic</button>
+        <button class="filter-btn" data-category="api">API</button>
+        <button class="filter-btn" data-category="favorites">Favorites ⭐</button>
       </div>
+
       <div class="sort-box">
         <select id="sortProjects" aria-label="Sort projects">
           <option value="default">Sort: Default</option>
@@ -119,41 +137,79 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
-
-      <div class="project-card" data-category="web">
+      <div class="project-card" data-category="web" data-project-id="kfupm-map">
+        <button class="favorite-btn" aria-label="Favorite project">☆</button>
         <div class="card-badge">Web</div>
         <div class="project-thumb">
           <img src="assets/images/project1.png" alt="KFUPM Real-Time Map" loading="lazy">
-          <div class="thumb-overlay">
-            <button class="details-btn">View Details</button>
-          </div>
         </div>
         <div class="project-body">
           <h3>KFUPM Real-Time Map</h3>
-          <p class="short-text">A KFUPM campus map based on students' schedules.</p>
+          <p class="short-text">A campus map project based on students' schedules.</p>
           <div class="project-details hidden">
-            <p>Helps students view routes between classes for each day. Focused on usability and clear route display across the campus.</p>
+            <p>This project helps students view routes between classes for each day. It focuses on usability, route clarity, and campus navigation.</p>
           </div>
+          <button class="details-btn inline-details-btn">View Details</button>
         </div>
       </div>
 
-      <div class="project-card" data-category="java">
+      <div class="project-card" data-category="java" data-project-id="ordering-app">
+        <button class="favorite-btn" aria-label="Favorite project">☆</button>
         <div class="card-badge">Java</div>
         <div class="project-thumb">
           <img src="assets/images/project2.png" alt="Food Ordering Application" loading="lazy">
-          <div class="thumb-overlay">
-            <button class="details-btn">View Details</button>
-          </div>
         </div>
         <div class="project-body">
           <h3>Ordering Application</h3>
-          <p class="short-text">A simple food ordering app built with JavaFX.</p>
+          <p class="short-text">A simple food ordering application built with JavaFX.</p>
           <div class="project-details hidden">
-            <p>Supports the online ordering process with a clean interface. Helped me deepen my Java skills and UI design thinking.</p>
+            <p>This project supports the online ordering process with a clean interface. It helped me practice Java programming and UI design.</p>
           </div>
+          <button class="details-btn inline-details-btn">View Details</button>
         </div>
       </div>
 
+      <div class="project-card" data-category="basic" data-project-id="calculator-app">
+        <button class="favorite-btn" aria-label="Favorite project">☆</button>
+        <div class="card-badge">Basic</div>
+        <div class="project-thumb project-icon">🧮</div>
+        <div class="project-body">
+          <h3>Calculator App</h3>
+          <p class="short-text">A calculator application I built during high school using NSB/AppStudio Basic.</p>
+          <div class="project-details hidden">
+            <p>This was one of my early programming projects. It helped me understand variables, conditions, user input, and basic application logic.</p>
+          </div>
+          <button class="details-btn inline-details-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="web" data-project-id="portfolio-website">
+        <button class="favorite-btn" aria-label="Favorite project">☆</button>
+        <div class="card-badge">Web</div>
+        <div class="project-thumb project-icon">🌐</div>
+        <div class="project-body">
+          <h3>Personal Portfolio Website</h3>
+          <p class="short-text">A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+          <div class="project-details hidden">
+            <p>This project includes responsive design, dark/light mode, project filtering, sorting, localStorage, form validation, and a polished user interface.</p>
+          </div>
+          <button class="details-btn inline-details-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="api" data-project-id="github-api-dashboard">
+        <button class="favorite-btn" aria-label="Favorite project">☆</button>
+        <div class="card-badge">API</div>
+        <div class="project-thumb project-icon">🔗</div>
+        <div class="project-body">
+          <h3>GitHub API Dashboard</h3>
+          <p class="short-text">A dynamic section that fetches and displays GitHub repositories.</p>
+          <div class="project-details hidden">
+            <p>This feature uses the GitHub REST API with fetch, loading feedback, error handling, and dynamic repository cards.</p>
+          </div>
+          <button class="details-btn inline-details-btn">View Details</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -161,6 +217,7 @@
     <div class="section-label">03 — Open Source</div>
     <h2 class="section-title">GitHub Repos</h2>
     <p class="section-sub">Live data pulled directly from the GitHub API.</p>
+
     <button id="loadReposBtn" class="btn btn-primary">Load Repositories</button>
     <p id="apiMessage" class="api-message"></p>
     <div id="repoList" class="repo-grid"></div>
@@ -168,34 +225,45 @@
 
   <section id="contact">
     <div class="section-label">04 — Contact</div>
+
     <div class="contact-grid">
       <div class="contact-left">
         <h2 class="section-title">Let's Talk</h2>
+
         <p class="contact-intro">
-          Have a project idea or just want to connect? Fill out the form and I'll get back to you soon.
+          Have a project idea or just want to connect? Fill out the form or visit my professional profiles.
         </p>
+
         <div class="contact-links">
-          <a href="https://github.com/alharbimesh47" target="_blank" class="contact-link-item">
+          <a href="https://github.com/alharbimesh47" target="_blank" rel="noopener noreferrer" class="contact-link-item">
             <span class="cl-icon">⌥</span> GitHub
+          </a>
+
+          <a href="https://www.linkedin.com/in/meshaal-alharbi-233b08207/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+            <span class="cl-icon">in</span> LinkedIn
           </a>
         </div>
       </div>
+
       <form id="contactForm" novalidate class="contact-form">
         <div class="form-group">
           <label for="nameInput">Full Name</label>
-          <input id="nameInput" name="name" type="text" placeholder="Meshaal Alharbi" autocomplete="name">
+          <input id="nameInput" name="name" type="text" placeholder="Your name" autocomplete="name">
           <p class="error-text" id="nameError"></p>
         </div>
+
         <div class="form-group">
           <label for="emailInput">Email Address</label>
           <input id="emailInput" name="email" type="email" placeholder="hello@example.com" autocomplete="email">
           <p class="error-text" id="emailError"></p>
         </div>
+
         <div class="form-group">
           <label for="messageInput">Message</label>
           <textarea id="messageInput" name="message" placeholder="Tell me about your project…"></textarea>
           <p class="error-text" id="messageError"></p>
         </div>
+
         <button type="submit" class="btn btn-primary submit-btn">Send Message →</button>
         <p id="formMessage" class="form-success"></p>
       </form>
