@@ -1,33 +1,45 @@
-# Meshaal Alharbi - Portfolio Website (Assignment 3)
 
-This project is a personal portfolio website developed for SWE 363 Assignment 3. It builds on Assignments 1 and 2 by adding advanced functionality, external API integration, stronger state management, and improved user interaction.
+
+# Meshaal Alharbi – Portfolio Website (Assignment 4)
+
+## Live Website
+https://alharbimesh47.github.io/202265580-meshaalalharbi-assignment4/
 
 ## Project Description
-The website presents my portfolio in a more dynamic and interactive way. It includes a modern landing section, project filtering and sorting, contact form validation, GitHub API integration, and saved user preferences using localStorage.
+This project is a personal portfolio website developed for SWE 363. It showcases my projects, skills, and contact information in a modern and interactive web application.
+
+The website builds on previous assignments and includes advanced features such as API integration, dynamic filtering, state management, and improved user experience.
 
 ## Features
-- Responsive multi-section portfolio website
-- Dark and light mode toggle
-- Time-based greeting
-- Visitor name saving with localStorage
-- Time-on-site counter
-- Project search
-- Project category filtering
-- Project sorting
+- Responsive modern UI design
+- Dark/Light theme toggle with persistence
+- Dynamic greeting based on time of day
+- Project search functionality
+- Project filtering by category
+- Project sorting (A–Z / Z–A)
 - Show/Hide project details
-- GitHub API integration to display repositories
-- API error handling with user-friendly messages
-- Contact form validation with custom feedback
+- Favorite projects system (saved in localStorage)
+- GitHub API integration (fetch repositories dynamically)
+- Auto-loading GitHub repositories
+- Contact form with validation
+- Visitor name storage (localStorage)
+- Time-on-site counter
 - Mobile navigation menu
+- External links (GitHub, LinkedIn)
 
 ## Technologies Used
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (DOM manipulation)
 - GitHub REST API
-- Git and GitHub
+- Git & GitHub Pages
 
-## Folder Structure
+## How to Run Locally
+1. Clone or download the repository
+2. Open the project folder
+3. Open `index.html` in your browser
+
+## Project Structure
 
 ```
 assignment-3/
@@ -45,23 +57,13 @@ assignment-3/
 └── .gitignore
 ```
 
-
-## How to Run Locally
-1. Download or clone the repository.
-2. Open the project folder in VS Code.
-3. Open `index.html` in your browser.
-4. You can also use the Live Server extension in VS Code for easier testing.
-
-## AI Usage Summary
-AI tools including Claude, ChatGPT, and Gemini were used to help with planning, debugging, improving styling, writing JavaScript logic, and preparing documentation. More details are included in `docs/ai-usage-report.md`.
-
-## Main Improvements from Previous Assignments
-Compared to Assignment 2, this version adds:
-- External API integration using GitHub API
-- Better state management by saving theme, visitor name, filter, sort, and search preferences
-- More advanced project logic with filtering and sorting together
-- Stronger form validation
-- More polished and modern user interface
+## Improvements from Assignment 3
+- Added favorite project feature (innovation)
+- Improved UI consistency and layout
+- Added automatic API loading
+- Enhanced form validation
+- Improved overall user experience
+- Deployed live website
 
 ## Notes
-This project focuses on clarity, responsiveness, interactivity, and clean structure while keeping the implementation simple enough to understand and explain.
+This project focuses on clean design, usability, and demonstrating front-end development skills using only HTML, CSS, and JavaScript.
