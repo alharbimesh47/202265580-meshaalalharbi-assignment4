@@ -28,8 +28,8 @@ The website builds on previous assignments and includes advanced features such a
 - External links (GitHub, LinkedIn)
 
 ## Technologies Used
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript (DOM manipulation)
 - GitHub REST API
 - Git & GitHub Pages
